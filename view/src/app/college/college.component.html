@@ -1,0 +1,28 @@
+<mat-card>
+
+  <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <div class="item item-1">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="College Name" [(ngModel)]="clgName" (focusout)="sendToParent()" required >
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <div class="item item-2">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Department" [(ngModel)]="department" (focusout)="sendToParent()" required>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">    
+    <div class="item item-3">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Semester" type="number" [(ngModel)]="semester" (focusout)="sendToParent()" required>
+      </mat-form-field>
+    </div>
+    <!-- <button (click)="sendData()">Send</button> -->
+  </div>
+ 
+</mat-card>

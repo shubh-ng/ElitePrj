@@ -1,0 +1,14 @@
+mat-card{
+    width:90%;
+    text-align: center;
+}
+
+/* css for disabling input type number right icon */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+/* end */
