@@ -1,0 +1,222 @@
+<mat-card>
+    <!-- <button mat-stroked-button color="primary" (click)="logout()">Logout</button> -->
+    <!-- <p *ngIf="enquiryResponse">{{enquiryResponse.status_message}}</p> -->
+    <div class="container"
+    fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="10px"
+    fxLayoutGap.xs="0"> 
+  
+        <mat-card-title>ENQUIRY</mat-card-title>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="addEnquiryData(form.value)">
+        <div class="container"
+        fxLayout
+        fxLayout.xs="column" 
+        fxLayoutAlign="center"
+        fxLayoutGap="10px"
+        fxLayoutGap.xs="0"> 
+  
+          <div class="item item-1" fxFlex="40%">
+              <mat-form-field class="example-full-width" >
+                  <input matInput placeholder="First name"  formControlName = "fname">
+              </mat-form-field>
+          </div>
+          <div class="item item-2" fxFlex="40%">
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Last name"  formControlName = "lname">
+                </mat-form-field>
+          </div>
+      
+        </div>
+
+        <div class="container"
+        fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="10px"
+        fxLayoutGap.xs="0">
+    
+            <div class="item item-1" fxFlex="40%">
+              <mat-form-field class="example-full-width" hintLabel="Max 10 characters">
+                  <input matInput #input maxlength="10" placeholder="Mobile number" formControlName = "mobile_no" type="number">
+                  <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+              </mat-form-field>  
+            </div>
+            
+            <div class="item item-2" fxFlex="40%">
+                <mat-form-field class="example-full-width">
+                    <mat-select placeholder="Gender"  formControlName = "gender">
+                      <mat-option *ngFor="let gender of genders" [value]="gender" >
+                        {{gender|titlecase}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="container"
+        fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="10px"
+        fxLayoutGap.xs="0"> 
+    
+            <div class="item item-1" fxFlex="40%">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" type="email" formControlName = "email">
+                </mat-form-field>        
+              </div>
+              
+              <div class="item item-2" fxFlex="40%">
+                    <div *ngIf="progressStart">
+                            <mat-spinner></mat-spinner>
+                    </div>
+                      <mat-checkbox *ngFor="let course of courses" name="selectedItem"  value={{course.c_id}}>
+                            {{course.c_name|titlecase}}
+                      </mat-checkbox>
+              </div>
+
+        </div>
+
+        <div class="container"
+        fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="10px"
+        fxLayoutGap.xs="0">
+  
+           <div class="item item-1" fxFlex="40%">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="House no."  type="text" formControlName = "house_no">
+                </mat-form-field>
+            </div>
+              
+            <div class="item item-2" fxFlex="40%">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Street"  type="text" formControlName = "street">                
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="container"
+        fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="10px"
+        fxLayoutGap.xs="0">
+    
+             <div class="item item-1" fxFlex="40%">
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="City"  type="text" formControlName = "city" name="city" >
+                  </mat-form-field>
+              </div>
+                
+              <div class="item item-2" fxFlex="40%">
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="District"  type="text" formControlName = "district">
+                  </mat-form-field>
+              </div>
+        </div>
+
+        <br><br>
+
+
+        <div class="container"
+        fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="10px"
+        fxLayoutGap.xs="0">
+             <div class="item item-1" fxFlex="40%">
+                    <mat-radio-group class="example-radio-group" formControlName="type" [(ngModel)]="role">
+                        <mat-radio-button class="example-radio-button" *ngFor="let student of studentTypes" [value]="student">
+                            {{student|titlecase}}
+                        </mat-radio-button>
+                    </mat-radio-group>                         
+              </div>
+        </div>
+        
+        
+        <div class="container"
+        fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="10px"
+        fxLayoutGap.xs="0">
+  
+              <div class="item item-1" fxFlex="40%" >
+                <div id="school" *ngIf="role=='school'" >
+                  <app-school-details (event)="setSchoolDetails($event)">Loading...</app-school-details>
+                </div>
+                <div id="college" *ngIf="role=='college'">
+                  <app-college (event) = "setClgDetails($event)">Loading...</app-college>
+                </div>
+                <div id="job" *ngIf="role=='job'">
+                  <app-job (event)="setJobDetails($event)">Loading...</app-job>
+                </div>
+              </div>
+        </div>
+        <br>      
+
+        <div class="container"
+        fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="10px"
+        fxLayoutGap.xs="0"> 
+
+        <div class="item item-1" fxFlex="40%">
+            <mat-form-field class="example-full-width">
+                <input matInput [matDatepicker]="picker" formControlName="enquiry_date"  placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #picker></mat-datepicker>    
+            </mat-form-field>        
+        </div>
+      
+
+        </div>
+
+        <div class="container"
+        fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="10px"
+        fxLayoutGap.xs="0">
+    
+                  <div class="item item-1 btn" fxFlex="50%">
+                      <button mat-raised-button color="primary" [disabled]="!form.valid" type="submit" class="example-full-width" (click)="getCourses('selectedItem')">Submit</button>
+                  </div>
+                  <br>
+                  <div class="item item-2 btn" fxFlex="50%">
+                      <button mat-stroked-button color="primary" type="reset" >Reset</button>
+                  </div>
+  
+        </div>
+    </form>
+</mat-card>
+<!--   
+s
+
+      <div class="container"
+      fxLayout
+      fxLayout.xs="column"
+      fxLayoutAlign="center"
+      fxLayoutGap="10px"
+      fxLayoutGap.xs="0">
+  
+                <div class="item item-1 btn" fxFlex="50%">
+                        
+                    <button mat-raised-button color="primary" type="submit" (click)="addEnquiryData()" class="example-full-width">Submit</button>
+                </div>
+                <br>
+                <div class="item item-2 btn" fxFlex="50%">
+                    <button mat-stroked-button color="primary" type="reset" >Reset</button>
+                </div>
+
+      </div>
+      
+    </form>
+  </mat-card> -->
