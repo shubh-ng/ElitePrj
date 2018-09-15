@@ -1,0 +1,24 @@
+
+<mat-card>
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px" fxLayoutAlign="center">
+  <div fxflex="50%">
+     <!-- <form class="example-form"> -->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter Company Name" [(ngModel)]="jobCompany" (focusout)="sendToParent()" required>
+      </mat-form-field>
+    <!-- </form> -->
+  </div>
+</div>
+
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <div fxflex="50%">
+    <mat-form-field>
+      <input matInput placeholder="Enter Department" [(ngModel)]="jobDepartment" (focusout)="sendToParent()" required>    
+    </mat-form-field>
+  </div>
+</div>
+</mat-card>
+<!--   
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+
+</div>  -->
