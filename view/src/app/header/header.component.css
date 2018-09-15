@@ -1,0 +1,42 @@
+@media only screen and (max-width:600px) {
+    .toggle-navbar {
+        display: block!important;
+    }
+    .logo {
+        display: none;
+    }
+    .header-card {
+        display: none;
+    }
+}
+
+
+.header-card {
+    height: 40px;
+}
+.card {
+    float: left;
+}
+.navbar-tabs {
+    position: absolute;
+    right: 5%;
+}
+i {
+    cursor: pointer;
+}
+button {
+    text-transform: capitalize;
+}
+.card-title {
+    outline: none;
+    cursor: pointer!important;
+}
+.toggle-navbar {
+    display: none;
+}
+.header-card {
+    animation: enterance 1s;
+}
+.navbar-tabs {
+    animation: enterObjects 1.5s;
+}

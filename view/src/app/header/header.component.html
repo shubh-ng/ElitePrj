@@ -1,0 +1,51 @@
+<div class="mat-app-background">
+  <mat-card class="header-card toggle-navbar">
+    <div class="card">
+      <mat-card-title class="card-title" routerLink="../header">Elite</mat-card-title>
+    </div>
+    <div class="navbar-tabs">
+      <i class="fa fa-bars" style="font-size: 25px" (click)="toggleState()"></i>
+    </div>
+  </mat-card>
+  <mat-card class="header-card">
+
+    <div class="card logo">
+      <mat-card-title class="card-title" routerLink="../header">Elite </mat-card-title>
+
+    </div>
+    <div class="navbar-tabs">
+      <button mat-button [matMenuTriggerFor]="student">Student</button>
+      <mat-menu #student="matMenu">
+        <button mat-menu-item routerLink="enquiry">Student Enquiry</button>
+        <button mat-menu-item routerLink="register">Student Registration</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="faculty">Faculty</button>
+      <mat-menu #faculty="matMenu">
+        <button mat-menu-item>Faculty Registration</button>
+        <button mat-menu-item>Remove Faculty</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="course">Course</button>
+      <mat-menu #course="matMenu">
+        <button mat-menu-item>Add Course</button>
+        <button mat-menu-item>Remove Course</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="batch">Batch</button>
+      <mat-menu #batch="matMenu">
+        <button mat-menu-item>Add Batch</button>
+        <button mat-menu-item>Remove Batch</button>
+      </mat-menu>
+      <i class="fa fa-cog" [matMenuTriggerFor]="setting" aria-hidden="true"></i>
+      <mat-menu #setting="matMenu">
+        <button mat-menu-item>
+          <i class="fa fa-user" aria-hidden="true"></i> Admin Profile
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <i class="fa fa-sign-out"></i> Logout
+        </button>
+      </mat-menu>
+    </div>
+  </mat-card>
+
+  <br>
+  <router-outlet></router-outlet>
+</div>
