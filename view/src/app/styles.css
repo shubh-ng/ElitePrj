@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body{
+    margin: 0;
+}
+
+/* enterance animation */
+@keyframes enterance {
+    from {
+       transform: translateY(200px);
+       opacity: 0;
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+/* enterance animation end*/
+
+/* enterance animation for sub objects */
+@keyframes enterObjects {
+    from {
+        transform: translateX(100px);
+    }
+    to {
+        transform: translate(0px);
+    }
+}
+/* enterance animation for sub objects end*/
