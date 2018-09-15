@@ -1,0 +1,21 @@
+mat-card{
+    margin: auto;
+}
+mat-card-title {
+    text-align: center;
+}
+.container {
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    padding: 10px;
+    position: relative;
+    top: 12px;
+}
+.mat-app-background {
+    height: 670px;
+}
+.content {
+    animation: enterance 1s;
+}

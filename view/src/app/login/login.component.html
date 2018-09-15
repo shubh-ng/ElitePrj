@@ -1,0 +1,138 @@
+<div *ngIf="progressStart">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="mat-app-background">
+    <br><br>
+    <div class="content">
+            <div class="container"
+            fxLayout
+            fxLayout.xs="column"
+            fxLayoutAlign="center"
+            fxLayoutGap="10px"
+            fxLayoutGap.xs="0">  
+                <div class="item item-1" fxFlex="40%" >        
+                    <mat-card>
+                        <i style="font-size: 20px">{{loginStatus}}</i>
+                    </mat-card>
+                </div>
+            </div>    
+
+            <!-- Login Icon -->
+            <div class="container"
+            fxLayout
+            fxLayout.xs="column"
+            fxLayoutAlign="center"
+            fxLayoutGap="10px"
+            fxLayoutGap.xs="0"> 
+                <div class="item item-1" fxFlex="40%">        
+                    <mat-card>
+                        <div class="container"
+                        fxLayout
+                        fxLayout.xs="column"
+                        fxLayoutAlign="center"
+                        fxLayoutGap="10px"
+                        fxLayoutGap.xs="0">
+                            <div class="item item-1" fxFlex="50%"> 
+                                <i class="fa fa-user-circle-o" style="font-size: 80px;color: indigo"></i>
+                            </div>    
+                        </div>                
+                    </mat-card>
+                </div>        
+            </div> 
+            <!-- Login Icon end-->
+
+            <!--Role Username Password Field -->
+            <div class="container"
+            fxLayout
+            fxLayout.xs="column"
+            fxLayoutAlign="center"
+            fxLayoutGap="10px"
+            fxLayoutGap.xs="0"> 
+                <div class="item item-1" fxFlex="40%">        
+                    <mat-card>
+                        <!-- for selecting role -->
+                        <div class="container"
+                        fxLayout
+                        fxLayout.xs="column"
+                        fxLayoutAlign="center"
+                        fxLayoutGap="10px"
+                        fxLayoutGap.xs="0">
+                            <div class="item item-1" fxFlex="70%"> 
+                                <mat-radio-group style="width: 100%;" [(ngModel)]="loginRequest.role">
+                                    <mat-radio-button *ngFor="let role of roles" [value]="role">{{role|titlecase}}&nbsp;</mat-radio-button>
+                                </mat-radio-group>
+                            </div>    
+                        </div> 
+                        <br>
+                        
+                        <!-- for username input -->
+                        <div class="container"
+                        fxLayout
+                        fxLayout.xs="column"
+                        fxLayoutAlign="center"
+                        fxLayoutGap="10px"
+                        fxLayoutGap.xs="0">
+                            <div class="item item-1" fxFlex="50%">
+                                <i class="fa fa-user" style="font-size: 24px; position: relative; right: 5px;top: 4px;color: indigo"></i>
+                                <mat-form-field class="example-full-width">
+                                    <input  matInput id="name" type="text" placeholder="Username" [(ngModel)]="loginRequest.mob"  required>
+                                </mat-form-field>
+                                <i class="fa fa-eye" style="visibility: hidden;"></i>
+                            </div>    
+                        </div> 
+                        <br>
+                        
+                        <!-- for password input -->
+                        <div class="container"
+                        fxLayout
+                        fxLayout.xs="column"
+                        fxLayoutAlign="center"
+                        fxLayoutGap="10px"
+                        fxLayoutGap.xs="0">
+                            <div class="item item-1" fxFlex="50%"> 
+                                <i class="fa fa-lock" style="font-size: 24px; position: relative; right: 5px;top: 4px;color: indigo"></i>
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type={{passwordType}} placeholder="Password" [(ngModel)]="loginRequest.password" id="pass" required>
+                                </mat-form-field>
+                                <i class={{passwordIcon}} id="show-hide-icon" (click)="togglePasswordIcon()"></i>
+                            </div>    
+                        </div> 
+                    </mat-card>
+                </div>        
+            </div>
+            <!--Role Username Password Field end -->
+
+            <!-- Submit login -->
+            <div class="container"
+            fxLayout
+            fxLayout.xs="column"
+            fxLayoutAlign="center"
+            fxLayoutGap="10px"
+            fxLayoutGap.xs="0"> 
+                <div class="item item-1" fxFlex="40%">        
+                    <mat-card>
+                        <div class="container"
+                        fxLayout
+                        fxLayout.xs="column"
+                        fxLayoutAlign="center"
+                        fxLayoutGap="10px"
+                        fxLayoutGap.xs="0">
+                            <div class="item item-1" fxFlex="50%"> 
+                                <button mat-raised-button  color="primary" id="loginbtn" (click)="login()"><i class="fa fa-unlock-alt" style="margin:5%"></i>
+                                Login</button>&nbsp;
+                            </div>    
+                            <div class="item item-1" fxFlex="50%">                 
+                                <a  id="forgotpass" href="#">Forgot password?</a>
+                            </div>
+                        </div>                
+                    </mat-card>
+                </div>        
+            </div>
+            <!-- Submit login end-->
+    </div>
+</div>
+        
+
+    
+        
