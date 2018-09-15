@@ -1,0 +1,20 @@
+<mat-card>
+  <div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px" fxLayoutAlign="center">
+    <div fxflex="100%">
+      <mat-form-field>
+        <input matInput placeholder="School Name" [(ngModel)] = "schoolName" (focusout)="sendToParent()" required>
+      </mat-form-field>       
+    </div>
+  </div>  
+
+   <div class="container" fxLayout="row
+  " fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10px" fxLayoutAlign="center">
+    <div fxflex="100%">
+      <mat-form-field>
+        <mat-select placeholder="Select Class" [(value)]="sclClass" [(ngModel)]="class" (selectionChange)="sendToParent()" required>
+          <mat-option value={{class}} *ngFor="let class of studentClass" >{{class}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>  
+</mat-card>
